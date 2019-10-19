@@ -1,77 +1,69 @@
 <template>
-  <div class="container">
+  <div class="container mx-auto py-4 text-grey-900">
     <div>
-      <logo />
-      <h1 class="title">
-        dashboard_component
-      </h1>
-      <h2 class="subtitle">
-        Dashboard Components
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+      <h1 class="text-2xl">Dashboard Components Mockups</h1>
+    </div>
+    <div class="mt-6">
+      <v-divider text="Button" />
+      <div class="mt-4 px-4">
+        <v-button>Button</v-button>
+        <v-button outline class="ml-3">Outlined</v-button>
+        <v-button disabled class="ml-3">Disabled</v-button>
+        <v-button loading class="ml-3">Loading</v-button>
+        <v-button outline loading class="ml-3">Loading</v-button>
+        <v-button class="ml-3" url="https://www.google.com" external>with &lt;a/&gt; tag</v-button>
+        <v-divider text="size" class="mt-5 mb-4" />
+        <v-button size="slim">Small</v-button>
+        <v-button class="ml-3">Default</v-button>
+        <v-button class="ml-3" size="large">Large</v-button>
       </div>
+    </div>
+    <div class="mt-20">
+      <v-divider text="Spinners" />
+      <div class="mt-4 px-4">
+        <div class="flex">
+          <div class="w-6 h-6 relative">
+            <v-spinner size="small" />
+          </div>
+          <div class="ml-8 w-10 h-10 relative">
+            <v-spinner />
+          </div>
+          <div class="ml-8 w-24 h-24 relative">
+            <v-spinner size="large" />
+          </div>
+        </div>
+        <v-divider text="Light variant" class="mt-5 mb-4" />
+        <div class="flex mt-4">
+          <div class="w-6 h-6 relative bg-gray-700">
+            <v-spinner theme="light" size="small" />
+          </div>
+          <div class="ml-8 w-10 h-10 relative bg-gray-700">
+            <v-spinner theme="light" />
+          </div>
+          <div class="ml-8 w-24 h-24 relative bg-gray-700">
+            <v-spinner theme="light" size="large" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-20">
+      <h4 class="text-xl">Separator</h4>
+      <v-divider class="mt-5 mb-4" />
+      <v-divider text="with text" class="mt-5 mb-4" />
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Button from '@/components/ui/basic/Button'
+import Divider from '@/components/ui/basic/Divider'
+import Spinner from '@/components/ui/basic/Spinner'
 
 export default {
   components: {
-    Logo
+    'v-button': Button,
+    'v-divider': Divider,
+    'v-spinner': Spinner
   }
 }
 </script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
