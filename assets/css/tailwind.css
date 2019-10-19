@@ -1,3 +1,15 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.transition-time-default {
+  transition-duration: 200ms;
+}
+
+.transition-all {
+  transition-property: background, border, opacity, transform, box-shadow;
+}
+
+.transition-ease-in-out {
+  transition-timing-function: ease-in-out;
+}

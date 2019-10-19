@@ -64,7 +64,7 @@ export default {
     },
     classes() {
       const _ = [
-        'relative inline-flex items-center align-middle leading-none font-semibold border-2 border-transparent uppercase tracking-wide rounded no-underline focus:outline-none focus:shadow-outline'
+        'relative inline-flex items-center align-middle justify-center leading-none font-semibold border-2 border-transparent uppercase tracking-wide rounded no-underline focus:outline-none focus:shadow-outline transition-all transition-time-default transition-ease-in-out'
       ]
 
       switch (this.size) {
@@ -84,6 +84,10 @@ export default {
 
       if (this.loading) {
         _.push('pointer-events-none')
+      }
+
+      if (this.fullWidth) {
+        _.push('w-full')
       }
 
       if (this.outline) {
