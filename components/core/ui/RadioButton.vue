@@ -2,7 +2,7 @@
   <div class="inline-block leading-none align-middle">
     <label
       :for="realId"
-      class="inline-flex items-center"
+      class="inline-flex items-center select-none"
       :class="{ 'pointer-events-none': disabled }"
     >
       <div
@@ -46,12 +46,15 @@ export default {
     disabled: Boolean
   },
   computed: {
-    realId() {
-      return this.id || 'Checkbox' + this._uid
-    },
     checked() {
       return this.modelValue === this.value
     }
+  },
+  data: () => ({
+    realId: ''
+  }),
+  mounted() {
+    this.realId = this.id || 'Checkbox' + this._uid
   },
   methods: {
     onChange(e) {

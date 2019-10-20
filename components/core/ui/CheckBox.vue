@@ -2,7 +2,7 @@
   <div class="inline-block leading-none align-middle">
     <label
       :for="realId"
-      class="inline-flex items-center"
+      class="inline-flex items-center select-none"
       :class="{ 'pointer-events-none': disabled }"
     >
       <div
@@ -12,7 +12,7 @@
         <template v-if="checked">
           <svg
             v-if="checked === 'indeterminate'"
-            class="w-5 h-5 text-white fill-current"
+            class="w-5 h-5 text-white fill-current relative"
             viewBox="0 0 20 20"
             focusable="false"
             aria-hidden="true"
@@ -36,7 +36,7 @@
           :id="realId"
           :name="name"
           :value="value"
-          class="opacity-0 absolute inset-0 cursor-pointer"
+          class="opacity-0 absolute inset-0 cursor-pointer z-10"
           :aria-invald="error == true"
           role="checkbox"
           :aria-checked="indeterminate ? 'mixed' : (checked ? 'true' : null)"
@@ -76,12 +76,15 @@ export default {
     disabled: Boolean
   },
   computed: {
-    realId() {
-      return this.id || 'Checkbox' + this._uid
-    },
     indeterminate() {
       return this.checked == 'indeterminate'
     }
+  },
+  data: () => ({
+    realId: ''
+  }),
+  mounted() {
+    this.realId = this.id || 'Checkbox' + this._uid
   },
   methods: {
     onChange(e) {

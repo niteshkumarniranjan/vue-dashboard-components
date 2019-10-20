@@ -73,9 +73,6 @@ export default {
     DynamicTag
   },
   computed: {
-    realId() {
-      return this.id || 'DashboardTextFiel' + this._uid
-    },
     parentClasses() {
       const _ = [
         'border-2 rounded flex transition-all transition-time-default transition-ease-in-out'
@@ -96,8 +93,12 @@ export default {
   data() {
     return {
       height: null,
-      focus: false
+      focus: false,
+      realId: ''
     }
+  },
+  mounted() {
+    this.realId = this.id || 'DashboardTextFiel' + this._uid
   },
   methods: {
     onFocus() {
