@@ -2,10 +2,10 @@
   <dynamic-tag
     :tag="url? 'a': 'button'"
     :on="{
-    click: onClick,
-    blur: onBlur,
-    focus: onFocus
-  }"
+      click: onClick,
+      blur: onBlur,
+      focus: onFocus
+    }"
     :type="submit? 'submit' : 'button'"
     :class="classes"
     :href="url"
@@ -44,6 +44,7 @@ export default {
   props: {
     url: String,
     outline: Boolean,
+    plain: Boolean,
     disabled: Boolean,
     loading: Boolean,
     size: {
@@ -91,11 +92,13 @@ export default {
         _.push('w-full')
       }
 
-      if (this.outline) {
-        _.push('border-gray-800 hover:bg-gray-200')
+      if (this.plain) {
+        _.push('hover:bg-gray-200 active:bg-gray-300')
+      } else if (this.outline) {
+        _.push('border-gray-800 hover:bg-gray-200 active:bg-gray-300')
       } else {
         _.push(
-          'bg-gray-700 text-white shadow-md hover:bg-gray-600 focus:bg-gray-800'
+          'bg-gray-700 text-white shadow-md hover:bg-gray-600 active:bg-gray-800'
         )
       }
 

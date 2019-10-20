@@ -15,6 +15,7 @@
         <div class="mt-4 px-6">
           <v-button>Button</v-button>
           <v-button outline class="ml-3">Outlined</v-button>
+          <v-button plain class="ml-3">Plain Button</v-button>
           <v-button disabled class="ml-3">Disabled</v-button>
           <v-button loading class="ml-3">Loading</v-button>
           <v-button outline loading class="ml-3">Loading</v-button>
@@ -77,14 +78,24 @@
       <div class="mt-20">
         <v-divider text="TextField" class="mb-4" />
         <v-card fullWidth class="px-4 py-6">
-          <v-text-field value="Nitesh Kumar Niranjan" label="Name" />
+          <v-text-field v-model="text" value="Nitesh Kumar Niranjan" label="Name" />
           <v-text-field multiline label="Multiline" class="mt-4" />
           <div class="mt-4 flex">
             <div class="w-1/2 pr-2">
-              <v-text-field label="With Prefix" prefix="github.com/" placeholder="username" />
+              <v-text-field
+                v-model="text"
+                label="With Prefix"
+                prefix="github.com/"
+                placeholder="username"
+              />
             </div>
             <div class="w-1/2 pl-2">
-              <v-text-field label="With Suffix" placeholder="placeholder" suffix="/user" />
+              <v-text-field
+                v-model="text"
+                label="With Suffix"
+                placeholder="placeholder"
+                suffix="/user"
+              />
             </div>
           </div>
           <v-text-field label="Read only" read-only value="readonly" class="mt-4" />
@@ -195,7 +206,8 @@ export default {
       }
     ],
     checked: false,
-    option: '1'
+    option: '1',
+    text: ''
   })
 }
 </script>
