@@ -48,6 +48,7 @@ export default {
   }),
   methods: {
     onSelect(d) {
+      if (!this.selectable) return
       if (this.selected.includes(d.id)) {
         this.selected = this.selected.filter(id => id !== d.id)
       } else {

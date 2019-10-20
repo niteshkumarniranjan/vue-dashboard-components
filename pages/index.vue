@@ -1,6 +1,6 @@
 <template>
   <div class="pb-20">
-    <div class="bg-gray-800 text-white py-4 px-6">
+    <div class="bg-gray-800 text-white py-4 px-6 shadow-lg">
       <h1 class="text-2xl">Dashboard Components Mockups</h1>
     </div>
     <div class="container mx-auto text-grey-900">
@@ -103,6 +103,8 @@
       <div class="mt-20">
         <v-divider text="Data Table" class="mb-4" />
         <v-card fullWidth class="px-4 py-6">
+          <v-table :fields="['name', 'role', 'location', 'status']" :data="tableData" />
+          <v-divider text="with select" class="my-4" />
           <v-table
             selectable
             :fields="['id', 'name', 'role', 'location', 'status']"
