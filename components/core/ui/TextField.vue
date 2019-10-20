@@ -4,7 +4,7 @@
     <div @click="onClick" :class="parentClasses">
       <div
         v-if="prefix"
-        class="px-3 py-2 bg-gray-100 border-r-2 font-medium text-gray-800 rounded-l"
+        class="px-3 py-2 bg-gray-100 border-r-2 font-medium text-gray-800 rounded-l transition-all transition-time-default transition-ease-in-out"
         :class="{ 'border-indigo-500': focus }"
         :id="realId+'Prefix'"
       >{{ prefix}}</div>
@@ -32,7 +32,7 @@
       </div>
       <div
         v-if="suffix"
-        class="px-3 py-2 bg-gray-100 border-l-2 font-medium text-gray-800 rounded-r"
+        class="px-3 py-2 bg-gray-100 border-l-2 font-medium text-gray-800 rounded-r transition-all transition-time-default transition-ease-in-out"
         :class="{ 'border-indigo-500': focus }"
         :id="realId+'Suffix'"
       >{{ suffix }}</div>
@@ -77,7 +77,9 @@ export default {
       return this.id || 'DashboardTextFiel' + this._uid
     },
     parentClasses() {
-      const _ = ['border-2 rounded flex']
+      const _ = [
+        'border-2 rounded flex transition-all transition-time-default transition-ease-in-out'
+      ]
 
       if (this.disabled) {
         _.push('pointer-events-none bg-gray-100')
