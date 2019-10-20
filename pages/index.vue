@@ -74,6 +74,42 @@
           <pre class="inline">fullWidth </pre>card
         </v-card>
       </div>
+      <div class="mt-20">
+        <v-divider text="TextField" class="mb-4" />
+        <v-card fullWidth class="px-4 py-6">
+          <v-text-field value="Nitesh Kumar Niranjan" label="Name" />
+          <v-text-field multiline label="Multiline" class="mt-4" />
+          <v-text-field
+            label="With Prefix"
+            prefix="github.com/"
+            placeholder="username"
+            class="mt-4"
+          />
+          <v-text-field label="With Suffix" suffix="/user" class="mt-4" />
+          <v-text-field label="Read only" read-only value="readonly" class="mt-4" />
+          <v-text-field label="Disabled" disabled value="Disabled" class="mt-4" />
+        </v-card>
+      </div>
+      <div class="mt-20">
+        <v-divider text="CheckBox" class="mb-4" />
+        <v-card fullWidth class="px-4 py-6">
+          <v-checkbox label="Default" v-model="checked" />
+          <v-checkbox label="Checked" checked class="ml-3" />
+          <v-checkbox label="Indeterminate" class="ml-3" checked="indeterminate" />
+          <v-checkbox disabled label="Disabled" class="ml-3" />
+          <v-checkbox disabled checked label="Disabled" class="ml-3" />
+        </v-card>
+      </div>
+      <div class="mt-20">
+        <v-divider text="Data Table" class="mb-4" />
+        <v-card fullWidth class="px-4 py-6">
+          <v-table
+            selectable
+            :fields="['id', 'name', 'role', 'location', 'status']"
+            :data="tableData"
+          />
+        </v-card>
+      </div>
     </div>
   </div>
 </template>
@@ -84,6 +120,9 @@ import Divider from '@/components/core/ui/Divider'
 import Spinner from '@/components/core/ui/Spinner'
 import Badge from '@/components/core/ui/Badge'
 import Card from '@/components/core/ui/Card'
+import TextField from '@/components/core/ui/TextField'
+import Table from '@/components/core/data/Table'
+import CheckBox from '@/components/core/ui/CheckBox'
 
 export default {
   components: {
@@ -91,7 +130,36 @@ export default {
     'v-divider': Divider,
     'v-spinner': Spinner,
     'v-badge': Badge,
-    'v-card': Card
-  }
+    'v-card': Card,
+    'v-text-field': TextField,
+    'v-table': Table,
+    'v-checkbox': CheckBox
+  },
+  data: () => ({
+    tableData: [
+      {
+        id: 1,
+        name: 'Nitesh Kumar Niranjan',
+        role: 'Front End Developer',
+        location: 'Delhi, India',
+        status: 'Online'
+      },
+      {
+        id: 2,
+        name: 'Rahul Roy',
+        role: 'Full Stack Develoepr',
+        location: 'Delhi, India',
+        status: 'Offline'
+      },
+      {
+        id: 3,
+        name: 'Prakash Bharti',
+        role: 'Senior Front End Developer',
+        location: 'Delhi, India',
+        status: 'Offline'
+      }
+    ],
+    checked: false
+  })
 }
 </script>
