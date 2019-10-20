@@ -15,8 +15,8 @@
         <tr
           v-for="d in data"
           :key="d.id"
-          class="cursor-pointer hover:bg-gray-100"
-          :class="{ 'bg-gray-100': isSelected(d) }"
+          class="hover:bg-gray-100"
+          :class="{ 'bg-gray-100': isSelected(d), 'cursor-pointer': selectable }"
           @click="onSelect(d)"
         >
           <td v-if="selectable" class="px-4 py-4 border-b">
