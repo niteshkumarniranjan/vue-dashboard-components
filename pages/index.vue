@@ -79,13 +79,14 @@
         <v-card fullWidth class="px-4 py-6">
           <v-text-field value="Nitesh Kumar Niranjan" label="Name" />
           <v-text-field multiline label="Multiline" class="mt-4" />
-          <v-text-field
-            label="With Prefix"
-            prefix="github.com/"
-            placeholder="username"
-            class="mt-4"
-          />
-          <v-text-field label="With Suffix" suffix="/user" class="mt-4" />
+          <div class="mt-4 flex">
+            <div class="w-1/2 pr-2">
+              <v-text-field label="With Prefix" prefix="github.com/" placeholder="username" />
+            </div>
+            <div class="w-1/2 pl-2">
+              <v-text-field label="With Suffix" placeholder="placeholder" suffix="/user" />
+            </div>
+          </div>
           <v-text-field label="Read only" read-only value="readonly" class="mt-4" />
           <v-text-field label="Disabled" disabled value="Disabled" class="mt-4" />
         </v-card>
