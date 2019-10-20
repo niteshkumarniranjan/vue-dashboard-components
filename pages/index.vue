@@ -134,6 +134,13 @@
             :fields="['id', 'name', 'role', 'location', 'status']"
             :data="tableData"
           />
+          <v-divider text="sortable" class="my-4" />
+          <v-table
+            sortable
+            sortedBy="-status"
+            :fields="['id', 'name', 'role', 'location', 'status']"
+            :data="tableData"
+          />
         </v-card>
       </div>
     </div>
@@ -170,21 +177,21 @@ export default {
         name: 'Nitesh Kumar Niranjan',
         role: 'Front End Developer',
         location: 'Delhi, India',
-        status: 'Online'
+        status: 'C'
       },
       {
         id: 2,
         name: 'Rahul Roy',
         role: 'Full Stack Develoepr',
         location: 'Delhi, India',
-        status: 'Offline'
+        status: 'B'
       },
       {
         id: 3,
         name: 'Prakash Bharti',
         role: 'Senior Front End Developer',
         location: 'Delhi, India',
-        status: 'Offline'
+        status: 'C'
       }
     ],
     checked: false,
