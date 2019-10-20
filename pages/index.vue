@@ -153,7 +153,7 @@
           <v-divider text="sortable" class="my-4" />
           <v-table
             sortable
-            sortedBy="-status"
+            sortedBy="id"
             :fields="['id', 'name', 'role', 'location', 'status']"
             :data="tableData"
           />

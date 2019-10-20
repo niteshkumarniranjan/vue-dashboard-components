@@ -77,9 +77,8 @@ export default {
       if (this.sortedBy.startsWith('-')) {
         this.asc = false
         col = col.substr(1)
-        this.sortableCol = col
       }
-      this.sortableCol = this.sortedBy
+      this.sortableCol = col
     } else {
       this.sortableCol = this.fields[0]
     }
