@@ -71,10 +71,10 @@
 </template>
 
 <script>
-import Button from '@/components/ui/core/Button'
-import Divider from '@/components/ui/core/Divider'
-import Spinner from '@/components/ui/core/Spinner'
-import Badge from '@/components/ui/core/Badge'
+import Button from '@/components/core/ui/Button'
+import Divider from '@/components/core/ui/Divider'
+import Spinner from '@/components/core/ui/Spinner'
+import Badge from '@/components/core/ui/Badge'
 
 export default {
   components: {
