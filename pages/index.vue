@@ -44,6 +44,11 @@
             <div class="ml-8 w-24 h-24 relative">
               <v-spinner size="large" />
             </div>
+            <div class="ml-8">
+              <v-card class="w-48 h-48">
+                <v-spinner />
+              </v-card>
+            </div>
           </div>
           <v-divider text="Light variant" class="mt-5 mb-4" />
           <div class="flex mt-4">
@@ -152,6 +157,18 @@
             :fields="['id', 'name', 'role', 'location', 'status']"
             :data="tableData"
           />
+          <v-divider text="Shimmer" class="my-4" />
+          <v-skeleton-table />
+        </v-card>
+      </div>
+      <div class="mt-20">
+        <v-divider text="Skeleton" class="mb-4" />
+        <v-card fullWidth class="px-4 py-6">
+          <div class="flex items-center">
+            <v-skeleton-thumbnail size="small" />
+            <v-skeleton-display-text size="small" class="ml-3" />
+          </div>
+          <v-skeleton-body-text :lines="2" class="mt-3" />
         </v-card>
       </div>
     </div>
@@ -168,6 +185,10 @@ import TextField from '@/components/core/ui/TextField'
 import Table from '@/components/core/data/Table'
 import CheckBox from '@/components/core/ui/CheckBox'
 import RadioButton from '@/components/core/ui/RadioButton'
+import SkeletonThumbnail from '@/components/core/skeleton/base/Thumbnail'
+import SkeletonDisplayText from '@/components/core/skeleton/base/DisplayText'
+import SkeletonBodyText from '@/components/core/skeleton/base/BodyText'
+import SkeletonTable from '@/components/core/skeleton/Table'
 
 export default {
   components: {
@@ -179,7 +200,11 @@ export default {
     'v-text-field': TextField,
     'v-table': Table,
     'v-checkbox': CheckBox,
-    'v-radio-button': RadioButton
+    'v-radio-button': RadioButton,
+    'v-skeleton-thumbnail': SkeletonThumbnail,
+    'v-skeleton-display-text': SkeletonDisplayText,
+    'v-skeleton-body-text': SkeletonBodyText,
+    'v-skeleton-table': SkeletonTable
   },
   data: () => ({
     tableData: [
