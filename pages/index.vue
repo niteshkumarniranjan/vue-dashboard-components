@@ -63,7 +63,7 @@
         <v-badge>5</v-badge>
         <v-badge class="ml-2">gray</v-badge>
         <v-badge color="green" class="ml-2">Success</v-badge>
-        <v-badge color="yello" class="ml-2">Waiting</v-badge>
+        <v-badge color="yellow" class="ml-2">Waiting</v-badge>
         <v-badge color="red" class="ml-2">Wrong</v-badge>
       </div>
     </div>
@@ -71,10 +71,10 @@
 </template>
 
 <script>
-import Button from '@/components/ui/basic/Button'
-import Divider from '@/components/ui/basic/Divider'
-import Spinner from '@/components/ui/basic/Spinner'
-import Badge from '@/components/ui/basic/Badge'
+import Button from '@/components/ui/core/Button'
+import Divider from '@/components/ui/core/Divider'
+import Spinner from '@/components/ui/core/Spinner'
+import Badge from '@/components/ui/core/Badge'
 
 export default {
   components: {
