@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pb-20">
     <div class="bg-gray-800 text-white py-4 px-6">
       <h1 class="text-2xl">Dashboard Components Mockups</h1>
     </div>
@@ -66,6 +66,14 @@
         <v-badge color="yellow" class="ml-2">Waiting</v-badge>
         <v-badge color="red" class="ml-2">Wrong</v-badge>
       </div>
+      <div class="mt-20">
+        <v-divider text="Card" class="mb-4" />
+        <v-card class="px-4 py-6">Basic Card</v-card>
+        <v-card fullWidth class="px-4 py-6 mt-4">
+          This is a
+          <pre class="inline">fullWidth </pre>card
+        </v-card>
+      </div>
     </div>
   </div>
 </template>
@@ -75,13 +83,15 @@ import Button from '@/components/core/ui/Button'
 import Divider from '@/components/core/ui/Divider'
 import Spinner from '@/components/core/ui/Spinner'
 import Badge from '@/components/core/ui/Badge'
+import Card from '@/components/core/ui/Card'
 
 export default {
   components: {
     'v-button': Button,
     'v-divider': Divider,
     'v-spinner': Spinner,
-    'v-badge': Badge
+    'v-badge': Badge,
+    'v-card': Card
   }
 }
 </script>

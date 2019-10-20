@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'Badge',
   props: {
     color: {
       type: String,

@@ -36,6 +36,7 @@ import DynamicTag from './DynamicTag'
 import Spinner from './Spinner'
 
 export default {
+  name: 'Button',
   components: {
     DynamicTag,
     Spinner

@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name: 'Spinner',
   props: {
     size: {
       type: String,
