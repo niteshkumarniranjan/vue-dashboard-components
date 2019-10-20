@@ -102,6 +102,29 @@
         </v-card>
       </div>
       <div class="mt-20">
+        <v-divider text="Radio Button" class="mb-4" />
+        <v-card fullWidth class="px-4 py-6">
+          <v-radio-button name="option" label="Option 1" v-model="option" value="1" />
+          <v-radio-button name="option" label="Option 2" v-model="option" value="2" class="ml-3" />
+          <v-radio-button
+            name="option"
+            label="Option 1 (Disabled)"
+            v-model="option"
+            value="1"
+            disabled
+            class="ml-3"
+          />
+          <v-radio-button
+            name="option"
+            label="Option 2 (Disabled)"
+            v-model="option"
+            value="2"
+            disabled
+            class="ml-3"
+          />
+        </v-card>
+      </div>
+      <div class="mt-20">
         <v-divider text="Data Table" class="mb-4" />
         <v-card fullWidth class="px-4 py-6">
           <v-table :fields="['name', 'role', 'location', 'status']" :data="tableData" />
@@ -126,6 +149,7 @@ import Card from '@/components/core/ui/Card'
 import TextField from '@/components/core/ui/TextField'
 import Table from '@/components/core/data/Table'
 import CheckBox from '@/components/core/ui/CheckBox'
+import RadioButton from '@/components/core/ui/RadioButton'
 
 export default {
   components: {
@@ -136,7 +160,8 @@ export default {
     'v-card': Card,
     'v-text-field': TextField,
     'v-table': Table,
-    'v-checkbox': CheckBox
+    'v-checkbox': CheckBox,
+    'v-radio-button': RadioButton
   },
   data: () => ({
     tableData: [
@@ -162,7 +187,8 @@ export default {
         status: 'Offline'
       }
     ],
-    checked: false
+    checked: false,
+    option: '1'
   })
 }
 </script>

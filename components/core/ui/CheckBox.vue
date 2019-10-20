@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-block leading-none">
+  <div class="inline-block leading-none align-middle">
     <label
       :for="realId"
       class="inline-flex items-center"
@@ -54,6 +54,7 @@
 
 <script>
 export default {
+  name: 'CheckBox',
   model: {
     prop: 'checked',
     event: 'change'
@@ -65,7 +66,6 @@ export default {
       type: [Boolean, String],
       default: false,
       validator(v) {
-        console.log({ v })
         return v && typeof v === 'string' ? v === 'indeterminate' : true
       }
     },
