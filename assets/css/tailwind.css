@@ -13,3 +13,13 @@
 .transition-ease-in-out {
   transition-timing-function: ease-in-out;
 }
+
+@keyframes skeletonShimmerAnimation {
+  0% {
+    opacity: 0.45;
+  }
+
+  to {
+    opacity: 0.9;
+  }
+}
