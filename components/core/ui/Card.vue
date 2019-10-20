@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-block rounded-lg shadow-md bg-white" :class="{'w-full': fullWidth}">
+  <div class="inline-block rounded-lg shadow-md bg-white relative" :class="{'w-full': fullWidth}">
     <slot />
   </div>
 </template>
