@@ -67,7 +67,7 @@
       >
         <table-menu
           v-if="menu"
-          @click="menuClick"
+          @menuClick="menuClick"
           @onClose="menu = false"
           :actions="selectedItemActions"
           :event="selectedItemEvent"

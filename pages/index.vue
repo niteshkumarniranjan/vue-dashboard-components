@@ -160,10 +160,12 @@
           <v-divider text="with action" class="my-4" />
           <v-table
             sortable
-            :action-function="(item) => [{ name: 'Edit', action: 'edit' }, { name: 'Delete', action: 'edit' }]"
+            :action-function="(item) => [{ name: 'Edit', action: 'edit' }, { name: 'Delete', action: 'delete' }]"
             sortedBy="id"
             :fields="['id', 'name', 'role', 'location', 'status']"
             :data="tableData"
+            @edit="onEdit"
+            @delete="onDelete"
           />
           <v-divider text="Shimmer" class="my-4" />
           <v-skeleton-table />
@@ -241,6 +243,14 @@ export default {
     checked: false,
     option: '1',
     text: ''
-  })
+  }),
+  methods: {
+    onEdit(data) {
+      alert(`Edit ${data.id}`);
+    },
+    onDelete(data) {
+      alert(`Delete ${data.id}`);
+    }
+  }
 }
 </script>

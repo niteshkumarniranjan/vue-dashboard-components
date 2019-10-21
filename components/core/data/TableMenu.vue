@@ -8,7 +8,7 @@
     <div
       v-for="item in actions"
       :key="item.name"
-      @click="$emit('click', item.action)"
+      @click="$emit('menuClick', item.action)"
       class="px-4 py-3 leading-tight cursor-pointer hover:bg-gray-200 text-sm"
     >{{ item.name }}</div>
   </div>
