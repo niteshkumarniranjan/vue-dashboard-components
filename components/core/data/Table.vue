@@ -2,8 +2,8 @@
   <card fullWidth class="border overflow-hidden">
     <table class="table-auto w-full">
       <thead class="bg-gray-100 border-b">
-        <tr>
-          <th v-if="selectable" class="px-4 py-4 border-b"></th>
+        <tr class="select-none">
+          <th v-if="selectable" class="px-4 py-4"></th>
           <th
             :class="{ 'cursor-pointer': sortable }"
             v-for="f in fields"
@@ -23,29 +23,64 @@
               <path d="M5 8l5 5 5-5z" fill-rule="evenodd" />
             </svg>
           </th>
+          <th v-if="actionFunction" class="px-4 py-4"></th>
         </tr>
       </thead>
       <tbody>
         <tr
           v-for="d in sortedData"
           :key="d.id"
-          class="hover:bg-gray-100"
+          class="hover:bg-gray-100 border-b"
           :class="{ 'bg-gray-100': isSelected(d), 'cursor-pointer': selectable }"
           @click="onSelect(d)"
         >
-          <td v-if="selectable" class="px-4 py-4 border-b">
+          <td v-if="selectable" class="px-4 py-4">
             <CheckBox :checked="isSelected(d)" class="pointer-events-none" />
           </td>
-          <td v-for="f in fields" :key="f" class="px-4 py-4 border-b">{{ d[f] }}</td>
+          <td v-for="f in fields" :key="f" class="px-4 py-4">{{ d[f] }}</td>
+          <td v-if="calcActions(d).length > 0" class="relative">
+            <svg
+              class="cursor-pointer"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              @click="openMenu($event, d)"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+              />
+            </svg>
+          </td>
         </tr>
       </tbody>
     </table>
+    <portal to="menu">
+      <transition
+        enter-class="opacity-0 scale-90"
+        enter-active-class="ease-out transition-fast"
+        enter-to-class="opacity-100 scale-100"
+        leave-class="opacity-100 scale-100"
+        leave-active-class="ease-in transition-fastest"
+        leave-to-class="opacity-0 scale-90"
+      >
+        <table-menu
+          v-if="menu"
+          @click="menuClick"
+          @onClose="menu = false"
+          :actions="selectedItemActions"
+          :event="selectedItemEvent"
+        />
+      </transition>
+    </portal>
   </card>
 </template>
 
 <script>
 import Card from '../ui/Card'
 import CheckBox from '../ui/CheckBox'
+import TableMenu from './TableMenu'
 var _ = require('lodash')
 
 export default {
@@ -54,21 +89,32 @@ export default {
     data: Array,
     selectable: Boolean,
     sortable: Boolean,
-    sortedBy: String
+    sortedBy: String,
+    actionFunction: Function
   },
   components: {
     Card,
-    CheckBox
+    CheckBox,
+    TableMenu
   },
   data: () => ({
     selected: [],
     sortableCol: '',
-    asc: true
+    asc: true,
+    menu: false,
+    selectedItem: null,
+    selectedItemEvent: null
   }),
   computed: {
     sortedData() {
       const data = [...this.data]
       return _.orderBy(data, [this.sortableCol], [this.asc ? 'asc' : 'desc'])
+    },
+    selectedItemActions() {
+      if (this.actionFunction && this.selectedItem) {
+        return this.actionFunction(this.selectedItem)
+      }
+      return []
     }
   },
   mounted() {
@@ -105,6 +151,25 @@ export default {
           this.sortableCol = f
         }
       }
+    },
+    calcActions(item) {
+      if (this.actionFunction) {
+        const actions = this.actionFunction(item)
+        return actions
+      }
+      return []
+    },
+    openMenu(e, d) {
+      this.menu = false
+      this.$nextTick(() => {
+        this.selectedItemEvent = e
+        this.selectedItem = d
+        this.menu = true
+      })
+    },
+    menuClick(action) {
+      this.menu = false
+      this.$emit(action, this.selectedItem)
     }
   }
 }

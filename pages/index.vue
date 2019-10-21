@@ -157,6 +157,14 @@
             :fields="['id', 'name', 'role', 'location', 'status']"
             :data="tableData"
           />
+          <v-divider text="with action" class="my-4" />
+          <v-table
+            sortable
+            :action-function="(item) => [{ name: 'Edit', action: 'edit' }, { name: 'Delete', action: 'edit' }]"
+            sortedBy="id"
+            :fields="['id', 'name', 'role', 'location', 'status']"
+            :data="tableData"
+          />
           <v-divider text="Shimmer" class="my-4" />
           <v-skeleton-table />
         </v-card>

@@ -1,6 +1,7 @@
 <template>
   <div class="antialiased">
     <nuxt />
+    <portal-target name="menu"></portal-target>
   </div>
 </template>
 
