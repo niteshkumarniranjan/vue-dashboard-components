@@ -12,7 +12,7 @@
         <template v-if="checked">
           <svg
             v-if="checked === 'indeterminate'"
-            class="w-5 h-5 text-white fill-current relative"
+            class="w-5 h-5 text-white fill-current relative pointer-events-none"
             viewBox="0 0 20 20"
             focusable="false"
             aria-hidden="true"
@@ -21,7 +21,7 @@
           </svg>
           <svg
             v-else
-            class="w-5 h-5 text-white fill-current"
+            class="w-5 h-5 text-white fill-current relative pointer-events-none"
             viewBox="0 0 20 20"
             focusable="false"
             aria-hidden="true"
