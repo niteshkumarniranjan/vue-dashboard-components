@@ -34,7 +34,7 @@
           @click="onSelect(d)"
         >
           <td v-if="selectable" class="px-4 py-4 border-b">
-            <CheckBox :checked="isSelected(d)" />
+            <CheckBox :checked="isSelected(d)" class="pointer-events-none" />
           </td>
           <td v-for="f in fields" :key="f" class="px-4 py-4 border-b">{{ d[f] }}</td>
         </tr>
