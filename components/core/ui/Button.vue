@@ -16,7 +16,7 @@
     <span v-if="loading">
       <spinner
         class="rounded-lg"
-        :class="{'bg-gray-700': !outline, 'bg-gray-100': outline}"
+        :class="{'bg-indigo-700': !outline, 'bg-indigo-100': outline}"
         size="small"
         :theme="outline? 'dark' : 'light'"
         accessibility-label="Loading"
@@ -93,12 +93,12 @@ export default {
       }
 
       if (this.plain) {
-        _.push('hover:bg-gray-200 active:bg-gray-300')
+        _.push('hover:bg-indigo-200 active:bg-indigo-300')
       } else if (this.outline) {
-        _.push('border-gray-800 hover:bg-gray-200 active:bg-gray-300')
+        _.push('border-indigo-800 hover:bg-indigo-200 active:bg-indigo-300')
       } else {
         _.push(
-          'bg-gray-700 text-white shadow-md hover:bg-gray-600 active:bg-gray-800'
+          'bg-indigo-700 text-white shadow-md hover:bg-indigo-600 active:bg-indigo-800'
         )
       }
 
