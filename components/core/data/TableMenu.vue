@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute bg-white shadow rounded py-1 origin-top-right"
+    class="absolute bg-white shadow border rounded py-1 origin-top-right"
     style="min-width: 160px;"
     ref="menu"
     :style="`top: ${event.pageY}px;left: ${event.pageX - (width + 16)}px;`"
